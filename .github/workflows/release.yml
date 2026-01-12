@@ -1,0 +1,25 @@
+name: Build and Release ATools
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Create Release Archive
+        run: |
+          mkdir build
+          cp ATools.lua build/
+          cp -r web build/
+          zip -r ATools_v1.0.zip build/
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ATools-Build
+          path: ATools_v1.0.zip
