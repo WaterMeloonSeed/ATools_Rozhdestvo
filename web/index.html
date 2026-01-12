@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="logo">RADMIR <span>ADMIN</span></div>
+            <button class="close-btn" onclick="closeUI()">×</button>
+        </header>
+
+        <div class="container">
+            <nav class="sidebar">
+                <button onclick="switchTab('main')" class="nav-item active">Инфо</button>
+                <button onclick="switchTab('actions')" class="nav-item">Действия</button>
+                <button onclick="switchTab('rules')" class="nav-item">Справка</button>
+            </nav>
+
+            <main class="content">
+                <div id="tab-main" class="tab-content">
+                    <h1>Панель управления</h1>
+                    <p>Добро пожаловать. Используйте меню слева для работы.</p>
+                    <div class="status-card">Скрипт запущен: <span id="time">--:--</span></div>
+                </div>
+
+                <div id="tab-actions" class="tab-content" style="display:none;">
+                    <h1>Быстрые запросы</h1>
+                    <div class="input-group">
+                        <input type="number" id="target-id" placeholder="ID игрока">
+                        <button onclick="doAction('check_stats')">Проверить статс</button>
+                    </div>
+                    <p class="warning">Все наказания выдаются строго вручную через чат согласно регламенту.</p>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
